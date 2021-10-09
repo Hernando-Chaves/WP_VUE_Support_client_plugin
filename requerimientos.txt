@@ -1,0 +1,24 @@
+- El plugin permite dar soporte a los cliente directamente desde el escritorio de wordpress.
+- Debe mostrar datos de contacto de BWC para cuando el cliente requiera soporte
+- Debe mostrar un formulario para contacto directo con BWC
+- El usuario pueda generar tickets
+    REFERENCÍAS
+    - https://codecanyon.net/item/totaldesk/20502693
+    - https://wordpress.org/plugins/js-support-ticket/
+- Debe tener una base de conocimientos
+- Debe permitir enviar notificaciones al cliente
+- Debe mostrar una lista de video tutoriales relacionados con la administración de su sitio web
+- Los vídeos serán cargados externamente, desde una API  de BWC
+- Preferiblemente usar youtube para cargar los vídeos
+- Al dar clic a cada enlace, se abrirá una ventana modal con el vídeo
+- Debe tener un buscador
+
+
+
+
+
+
+IDEAS A FUTURO
+- El usuario puede acceder a un chat para pedir soporte
+- Implementar chatbot para solicitudes basicas y comunes
+- 

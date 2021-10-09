@@ -1,0 +1,14 @@
+Posible menu:
+    - Tickets
+        - Mis tickets
+        - Nuevo Ticket
+    - Base de conocimiento
+
+
+
+POSIBLE INTERFAZ
+
+- HOME
+    - Resumen de todo
+    - Información de contacto
+    - Formulario de contacto

@@ -1,0 +1,17 @@
+{
+    "name": "bwc/client_support",
+    "autoload": {
+        "psr-4": {
+            "Api\\": "api/",
+            "Admin\\": "admin/",
+            "Includes\\": "includes/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Hernando Chaves",
+            "email": "bogotawebcompany@gmail.com"
+        }
+    ],
+    "require": {}
+}
