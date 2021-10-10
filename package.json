@@ -11,7 +11,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@apollo/client": "^3.4.16",
+    "apollo-cache-inmemory": "^1.6.6",
+    "apollo-client": "^2.6.10",
+    "apollo-link": "^1.2.14",
+    "apollo-link-http": "^1.5.17",
+    "graphql": "^15.6.1",
+    "graphql-tag": "^2.12.5",
     "vue": "^2.6.14",
+    "vue-apollo": "^3.0.8",
     "vue-router": "^3.5.2",
     "vuex": "^3.6.2"
   },
@@ -22,6 +30,7 @@
     "babel-loader": "^8.2.2",
     "laravel-mix": "^6.0.31",
     "resolve-url-loader": "^4.0.0",
+    "vue-cli-plugin-apollo": "~0.22.2",
     "vue-loader": "^15.9.8",
     "vue-template-compiler": "^2.6.14",
     "webpack": "^5.58.1",

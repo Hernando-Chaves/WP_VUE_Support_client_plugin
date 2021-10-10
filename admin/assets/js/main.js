@@ -33,13 +33,62 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _queries_cursos__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../queries/cursos */ "./src/admin/queries/cursos.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 //
 //
 //
 //
 //
 //
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      loading: false,
+      cursos: []
+    };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _this.loading = true;
+              _context.next = 3;
+              return _this.$apollo.query({
+                query: _queries_cursos__WEBPACK_IMPORTED_MODULE_1__.CURSOS_ATC
+              });
+
+            case 3:
+              _this.cursos = _context.sent;
+              _this.loading = false;
+
+            case 5:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }))();
+  }
+});
 
 /***/ }),
 
@@ -85,6 +134,45 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/admin/ApolloClient.js":
+/*!***********************************!*\
+  !*** ./src/admin/ApolloClient.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "apolloProvider": () => (/* binding */ apolloProvider)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+/* harmony import */ var vue_apollo__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-apollo */ "./node_modules/vue-apollo/dist/vue-apollo.esm.js");
+/* harmony import */ var apollo_client__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! apollo-client */ "./node_modules/apollo-client/bundle.esm.js");
+/* harmony import */ var apollo_link_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! apollo-link-http */ "./node_modules/apollo-link-http/lib/bundle.esm.js");
+/* harmony import */ var apollo_cache_inmemory__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! apollo-cache-inmemory */ "./node_modules/apollo-cache-inmemory/lib/bundle.esm.js");
+
+
+
+
+
+vue__WEBPACK_IMPORTED_MODULE_1__["default"].use(vue_apollo__WEBPACK_IMPORTED_MODULE_0__["default"]); // HTTP connection to the API
+
+var httpLink = (0,apollo_link_http__WEBPACK_IMPORTED_MODULE_2__.createHttpLink)({
+  // You should use an absolute URL here
+  uri: 'http://localhost/atc-wp/graphql'
+}); // Cache implementation
+
+var cache = new apollo_cache_inmemory__WEBPACK_IMPORTED_MODULE_3__.InMemoryCache(); // Create the apollo client
+
+var apolloClient = new apollo_client__WEBPACK_IMPORTED_MODULE_4__.ApolloClient({
+  link: httpLink,
+  cache: cache
+});
+var apolloProvider = new vue_apollo__WEBPACK_IMPORTED_MODULE_0__["default"]({
+  defaultClient: apolloClient
+});
+
+/***/ }),
+
 /***/ "./src/admin/main.js":
 /*!***************************!*\
   !*** ./src/admin/main.js ***!
@@ -92,22 +180,45 @@ __webpack_require__.r(__webpack_exports__);
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
 /* harmony import */ var _App_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./App.vue */ "./src/admin/App.vue");
 /* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./router */ "./src/admin/router/index.js");
+/* harmony import */ var _ApolloClient__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ApolloClient */ "./src/admin/ApolloClient.js");
+
 
 
 
 
 window.onload = function () {
-  new vue__WEBPACK_IMPORTED_MODULE_2__["default"]({
+  new vue__WEBPACK_IMPORTED_MODULE_3__["default"]({
     el: '#sup_client',
+    apolloProvider: _ApolloClient__WEBPACK_IMPORTED_MODULE_2__.apolloProvider,
     router: _router__WEBPACK_IMPORTED_MODULE_1__["default"],
     render: function render(h) {
       return h(_App_vue__WEBPACK_IMPORTED_MODULE_0__["default"]);
     }
   });
 };
+
+/***/ }),
+
+/***/ "./src/admin/queries/cursos.js":
+/*!*************************************!*\
+  !*** ./src/admin/queries/cursos.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "CURSOS_ATC": () => (/* binding */ CURSOS_ATC)
+/* harmony export */ });
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! graphql-tag */ "./node_modules/graphql-tag/lib/index.js");
+var _templateObject;
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+
+var CURSOS_ATC = (0,graphql_tag__WEBPACK_IMPORTED_MODULE_0__["default"])(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  query MyQuery {\n  cPTCursosATC(where: { status: PUBLISH }) {\n    nodes {\n      title\n      id\n      featuredImage {\n        node {\n          altText\n          caption\n          id\n          srcSet\n          sourceUrl\n        }\n      }\n      configuracionCursosATC {\n        fechaDeInicio\n        valor\n        modalidad\n        sede\n        duracion\n        categoria\n        certificadoOtorgado\n        jornada\n        descripcion\n        miniatura {\n          altText\n          id\n          srcSet\n          sourceUrl\n        }\n        pdfDelPrograma {\n          uri\n        }\n      }\n    }\n  }\n  }\n"])));
 
 /***/ }),
 
@@ -473,16 +584,15 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c("h1", [_vm._v("Inicio")]),
+    _vm._v(" "),
+    _vm.loading
+      ? _c("div", [_c("h3", [_vm._v("Cargando...")])])
+      : _c("div", [_vm._v("\n    " + _vm._s(_vm.cursos) + "\n  ")])
+  ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [_c("h1", [_vm._v("Inicio")])])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
