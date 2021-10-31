@@ -5,6 +5,8 @@
     REFERENCÍAS
     - https://codecanyon.net/item/totaldesk/20502693
     - https://wordpress.org/plugins/js-support-ticket/
+    - https://herothemes.com/plugins/heroic-wordpress-knowledge-base/
+    https://betterdocs.co/es/docs/
 - Debe tener una base de conocimientos
 - Debe permitir enviar notificaciones al cliente
 - Debe mostrar una lista de video tutoriales relacionados con la administración de su sitio web
@@ -22,3 +24,53 @@ IDEAS A FUTURO
 - El usuario puede acceder a un chat para pedir soporte
 - Implementar chatbot para solicitudes basicas y comunes
 - 
+
+
+query MyQuery {
+  categoriasVideosBwc {
+    nodes {
+      videosBWC {
+        nodes {
+          categoriasVideosBwc(where: {termTaxonomId: "2"}) {
+            nodes {
+              id
+              name
+              videosBWC {
+                nodes {
+                  title
+                  videosCMB {
+                    idDelVideo
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+query MyQuery {
+  videosBWC {
+    nodes {
+      categoriasVideosBwc(where: {name: "uniandes"}) {
+        edges {
+          node {
+            id
+            videosBWC {
+              nodes {
+                title
+                videosCMB {
+                  idDelVideo
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+

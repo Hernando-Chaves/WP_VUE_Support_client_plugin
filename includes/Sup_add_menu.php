@@ -49,9 +49,10 @@ class Sup_add_menu
             global $submenu;
 
             $submenu[$this->slug][] = [__('Inicio', $this->domain), $this->capability, 'admin.php?page=' . $this->slug . '#/'];
-            $submenu[$this->slug][] = [__('Tickets', $this->domain), $this->capability, 'admin.php?page=' . $this->slug . '#/tickets'];
+            $submenu[$this->slug][] = [__('Video tutoriales', $this->domain), $this->capability, 'admin.php?page=' . $this->slug . '#/video-tutoriales'];
             $submenu[$this->slug][] = [__('Base de conocimiento', $this->domain), $this->capability, 'admin.php?page=' . $this->slug . '#/conocimiento'];
-
+            $submenu[$this->slug][] = [__('Tickets', $this->domain), $this->capability, 'admin.php?page=' . $this->slug . '#/tickets'];
+            $submenu[$this->slug][] = [__('Mensaje de correo', $this->domain), $this->capability, 'admin.php?page=' . $this->slug . '#/mensaje-correo'];
 
         endif;
     }

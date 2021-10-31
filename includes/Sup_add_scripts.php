@@ -41,6 +41,25 @@ class Sup_add_scripts
 
     public function sup_add_styles($styles)
     {
+        if ('is_admin') :
+
+            foreach ($styles as $handle => $style) :
+
+                $current_screen = get_current_screen();
+
+                if ($current_screen->base == 'toplevel_page_soporte_bwc') :
+
+                    $ver  = isset($style['ver']) ? $style['ver'] : '';
+                    $deps = isset($style['deps']) ? $style['deps'] : '';
+
+                    wp_register_style($handle, $style['src'], $deps, $ver, 'all');
+                    wp_enqueue_style($handle);
+
+                endif;
+
+            endforeach;
+
+        endif;
     }
 
     public function sup_get_scripts()
@@ -71,5 +90,14 @@ class Sup_add_scripts
 
     public function sup_get_styles()
     {
+        $styles = [
+            'tailwind' => [
+                'src'  => SUPURL . '/admin/assets/css/tailwind.css',
+                'deps' => [],
+                'ver'  => '2.2.16'
+            ],
+        ];
+
+        return $styles;
     }
 }

@@ -1,6 +1,5 @@
 <?php
 
-
 /**
  *
  *Plugin Name:       Client Support
